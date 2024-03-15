@@ -4,20 +4,21 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                 
-                 echo 'building the app'   
+                echo 'Building the app'
             }
         }
         
         stage('Test') {
             steps {
-                // Add test steps here
+                echo 'Running tests'
+                // Add test steps here, such as running unit tests or integration tests
             }
         }
         
         stage('Deploy') {
             steps {
-                // Add deployment steps here
+                echo 'Deploying the app'
+                // Add deployment steps here, such as deploying to a server or a cloud platform
             }
         }
     }
