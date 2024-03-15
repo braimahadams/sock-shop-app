@@ -2,24 +2,13 @@ pipeline {
     agent any
     
     stages {
-        stage('Build') {
+        stage('Checkout') {
             steps {
-                echo 'Building the app'
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'Github-Credentials', url: 'https://github.com/braimahadams/sock-shop-app']])
+                checkout scm
             }
         }
         
-        stage('Test') {
-            steps {
-                echo 'Running tests'
-                // Add test steps here, such as running unit tests or integration tests
-            }
-        }
         
-        stage('Deploy') {
-            steps {
-                echo 'Deploying the app'
-                // Add deployment steps here, such as deploying to a server or a cloud platform
-            }
-        }
     }
 }
