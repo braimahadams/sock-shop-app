@@ -1,3 +1,12 @@
+terraform {
+  required_version = ">= 0.12"
+  backend "s3" {
+    bucket = "sock-shop-terraform-state"
+    key    = "vpc/terraform.tfstate"
+    region = "eu-west-2"
+  }
+}
+
 provider "aws" {
   region = ""
 }

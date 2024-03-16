@@ -3,7 +3,7 @@ module "eks" {
   version = "18.21.0"
 
   cluster_name = "sock-shop-cluster"  
-  cluster_version = "1.22"
+  cluster_version = "1.29"
 
   subnet_ids = module.sock-shop-vpc.private_subnets
   vpc_id = module.sock-shop-vpc.vpc_id
