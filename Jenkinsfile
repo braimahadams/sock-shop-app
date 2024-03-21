@@ -1,3 +1,4 @@
+def groovy
 pipeline {
     agent any
     parameters {
@@ -22,6 +23,15 @@ pipeline {
                 )
             }
         }
+
+        stage ('Load Groovy Script') {
+            steps {
+                script {
+                    groovy = load 'script.groovy'
+                }
+            
+        }
+}
 
         stage('Provisioning EKS Cluster with Terraform') {
             steps {
