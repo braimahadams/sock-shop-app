@@ -90,19 +90,6 @@ pipeline {
            }
         }
     }
-    
-    post {
-        always {
-            echo 'This will always run'
-        }
-        success {
-            echo 'Pipeline executed successfully'
-        }
-
-        failure {
-            echo 'Pipeline execution failed'
-        }
-    }
 }
 
 

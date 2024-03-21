@@ -2,7 +2,7 @@ def provisionTerraform () {
     dir('terraform') {
         sh ''' 
             terraform init
-            terraform apply -out=eks_plan
+            terraform plan -out=eks_plan
             terraform apply --auto-approve eks_plan
         '''
     }
