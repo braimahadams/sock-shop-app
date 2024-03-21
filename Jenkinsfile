@@ -1,13 +1,6 @@
 def groovy
 pipeline {
     agent any
-    parameters {
-        booleanParam(
-            name: 'terraformProvisioning',
-            defaultValue: true,
-            description: 'Deploy the sock-shop app to EKS cluster'
-        )
-    }
     environment {
         AWS_ACCESS_KEY_ID = credentials('aws_access_key_id')
         AWS_SECRET_ACCESS_KEY = credentials('aws_secret_access_key')
@@ -48,21 +41,8 @@ pipeline {
                 }
             }
         }
-
-        stage('Check if Ingress Controller is Installed') {
-            steps {
-                script {
-                    // command to check if the ingress controller is installed
-                    def isInstalled = sh(script: 'kubectl get svc -n ingress-nginx', returnStatus: true) == 0
-                    env.INGRESS_CONTROLLER_INSTALLED = isInstalled
-                }
-            }
-        }
         
         stage('Install Ingress Controller') {
-            when {
-                expression { !env.INGRESS_CONTROLLER_INSTALLED }
-            }
             steps {
                 script {
                     groovy.intallIngressController ()
