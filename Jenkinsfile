@@ -27,7 +27,11 @@
             stage('init') {
                 steps {
                     script {
-                         sh 'terraform destroy --auto-approve'
+                         dir('terraform') {
+                            sh '''
+                                terraform destroy --auto-approve
+                            ''' 
+                         }
                     }
                 }
             }
