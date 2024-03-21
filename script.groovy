@@ -51,17 +51,18 @@ def deploySockShopApp () {
 def deployPrometheusAndGrafana () {
     dir('kubernetes/monitoring') {
         sh '''
-            kubectl apply -f prometheus/
-            kubectl apply -f grafana/
+            chmod +x deploy-prometheus.sh
+            ./deploy-prometheus.sh
+
         '''
     }
 }
 
 def deployAlertManager () {
-    dir('kubernetes/alertmanager') {
+    dir('kubernetes/alert-manager') {
         sh '''
-            kubectl apply -f alertmanager.yaml
             kubectl apply -f alertmanager-dep.yaml
+            kubectl apply -f alertmanager-configmap.yaml
             kubectl apply -f alertmanager-svc.yaml
         '''
     }
