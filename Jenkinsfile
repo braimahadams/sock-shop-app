@@ -27,15 +27,7 @@ def groovyPipeline {
             stage('init') {
                 steps {
                     script {
-                        groovy = load "script.groovy"
-                    }
-                }
-            }
-
-            stage('Terraform Destroy') {
-                steps {
-                    script {
-                        sh 'terraform destroy --auto-approve'
+                         sh 'terraform destroy --auto-approve'
                     }
                 }
             }
