@@ -20,8 +20,9 @@ def intallIngressController () {
         echo 'pipeline is waiting for the cluster to be initialized...'
         sleep(time: '1', unit: 'MINUTES')
         sh '''
-            helm install ingress-nginx ingress-nginx --repo https://kubernetes.github.io/ingress-nginx --namespace ingress-nginx --create-namespace --set-string controller.service.annotations."service\.beta\.kubernetes\.io/aws-load-balancer-type"="nlb"
+            helm install ingress-nginx ingress-nginx --repo https://kubernetes.github.io/ingress-nginx --namespace ingress-nginx --create-namespace --set-string controller.service.annotations."service\\.beta\\.kubernetes\\.io/aws-load-balancer-type"="nlb"
         '''
+
     }
 }
 
