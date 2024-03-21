@@ -21,7 +21,9 @@ pipeline {
         stage('Terraform Destroy') {
            steps {
                script {
-                   groovy.destroyTerraform ()
+                dir ('terraform') {
+                    groovy.destroyTerraform ()    
+                }
                }
            }
         }
