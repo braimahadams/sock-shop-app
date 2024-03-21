@@ -1,4 +1,4 @@
-
+def groovy
 pipeline {
     agent any
     environment {
