@@ -1,4 +1,4 @@
-def groovyPipeline {
+
     pipeline {
         agent any
         parameters {
@@ -33,4 +33,3 @@ def groovyPipeline {
             }
         }
     }
-}
