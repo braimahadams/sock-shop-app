@@ -73,10 +73,12 @@ def destroyTerraform() {
         if (userInput == 'true') {
             echo 'Proceeding with Terraform destroy...'
             sh '''
-                terraform destroy --auto-approve
+                terraform successully aborted by user.
             '''
         } else {
-            echo 'Terraform destroy aborted by user.'
+            sh '''
+                terraform destroy --auto-approve
+            '''
             // The 'return' statement here will not work as expected because it's inside a script block.
             // Instead, you can use 'error' to stop the pipeline execution or simply return from the function.
             // error('Terraform destroy aborted by user.')
