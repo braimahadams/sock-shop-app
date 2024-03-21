@@ -41,7 +41,7 @@ def deploySockShopApp () {
             kubectl apply -f complete-demo.yaml
             kubectl apply -f cluster-autoscaler/
             kubectl apply -f priorityclass.yaml
-            echo 'waiting for the sock-shop app to be fully deployed...'
+            echo "waiting for the sock-shop app to be fully deployed..."
             sleep 1m
             kubectl apply -f ingress-nginx.yaml
         '''
@@ -71,10 +71,7 @@ def destroyTerraform() {
     dir('terraform') {
         def userInput = input(id: 'confirm', message: 'Do you want to proceed with Terraform destroy?', parameters: [ [$class: 'BooleanParameterDefinition', defaultValue: false, description: '', name: 'confirm'] ])
         if (userInput == 'true') {
-            echo 'Proceeding with Terraform destroy...'
-            sh '''
-                terraform successully aborted by user.
-            '''
+            echo 'Terraform aborting'
         } else {
             sh '''
                 terraform destroy --auto-approve
