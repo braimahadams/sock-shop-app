@@ -39,10 +39,10 @@ def deploySockShopApp () {
     dir('kubernetes') {
         sh '''
             kubectl apply -f complete-demo.yaml
-            kubectl create -f cluster-autoscaler/
+            kubectl apply -f cluster-autoscaler/
             kubectl apply -f priorityclass.yaml
             echo 'waiting for the sock-shop app to be fully deployed...'
-            sleep 3m
+            sleep 1m
             kubectl apply -f ingress-nginx.yaml
         '''
     }
