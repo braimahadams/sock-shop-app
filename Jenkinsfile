@@ -1,4 +1,4 @@
-def groovy
+
 pipeline {
     agent any
     environment {
@@ -22,7 +22,7 @@ pipeline {
            steps {
                script {
                 dir ('terraform') {
-                    groovy.destroyTerraform ()    
+                    sh 'terraform destroy --auto-approve'   
                 }
                }
            }
