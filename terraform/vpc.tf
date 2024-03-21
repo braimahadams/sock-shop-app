@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "aws" {
-  region = ""
+  region = "eu-west-2"
 }
 
 variable vpc_cidr_block {}
