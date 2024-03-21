@@ -42,7 +42,19 @@ pipeline {
             }
         }
 
-        stage('Installing Ingress Controller') {
+        stage('Check if Ingress Controller is Installed') {
+            steps {
+                script {
+                    // command to check if the ingress controller is installed
+                    def isInstalled = sh(script: 'kubectl get svc -n ingress-nginx', returnStatus: true) == 0
+                    env.INGRESS_CONTROLLER_INSTALLED = isInstalled
+                }
+            }
+        }
+        stage('Install Ingress Controller') {
+            when {
+                expression { !env.INGRESS_CONTROLLER_INSTALLED }
+            }
             steps {
                 script {
                     groovy.intallIngressController ()
