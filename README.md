@@ -56,11 +56,6 @@ This document outlines the process I followed to deploy the Socks Shop demo appl
 - Debugged any errors and ensured successful deployment.  ![AWS DNS Configuration](screenshots/debug.png)
 - Destroyed the EKS cluster after successful testing. ![AWS DNS Configuration](screenshots/jenkins%20sucessfuly-deployment.png)
 
-## Screenshots
-
-- **Jenkins Dashboard**: ![Jenkins Dashboard](jenkins-dashboard.png)
-- **GitHub OAuth Configuration**: ![GitHub OAuth Configuration](github-oauth.png)
-
 ## Conclusion
 
 This document details how I deployed a microservices-based application like Socks Shop on Kubernetes using Jenkins. By automating the deployment process, emphasizing efficiency and reliable deployments.
