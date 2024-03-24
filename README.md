@@ -34,7 +34,7 @@ This document outlines the process I followed to deploy the Socks Shop demo appl
 - Created a droplet on Digital Ocean to use as the Jenkins server.
 - Installed Docker and ran Jenkins using Docker for easy setup, ensuring necessary ports were opened and volumes were mounted. ![AWS DNS Configuration](screenshots/docker.png)
 - Logged in to Jenkins, added necessary default plugins.
-- Configured Jenkins with necessary plugins and tools (Terraform, Helm, kubectl, AWS CLI).
+- Configured Jenkins with necessary plugins and tools.
 - Entered the Jenkins container as root user and installed required tools  (Terraform, Helm, kubectl, AWS CLI, etc...)
 
 
